@@ -3,6 +3,7 @@ package com.statewideinsurance.userservice.service.impl;
 import com.statewideinsurance.userservice.model.User;
 import com.statewideinsurance.userservice.repository.UserRepository;
 import com.statewideinsurance.userservice.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,14 +11,13 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Override
     public List<User> getAllUsers() {
+
         return userRepository.findAll();
     }
 
@@ -29,6 +29,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUser(User user) {
+
         return userRepository.save(user);
     }
 
@@ -46,6 +47,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(Long id) {
+
         userRepository.deleteById(id);
     }
 }
