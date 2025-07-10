@@ -4,6 +4,7 @@ import com.statewideinsurance.claims_service.Model.Claim;
 import com.statewideinsurance.claims_service.Repository.ClaimRepository;
 import com.statewideinsurance.claims_service.Services.ClaimService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/claims")
 public class ClaimController {
-    private final ClaimService claimService;
+
+    @Autowired
+    private ClaimService claimService;
 
     @PostMapping
     public ResponseEntity<Claim> submitClaim(@RequestBody Claim claim) {

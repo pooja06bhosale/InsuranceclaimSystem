@@ -9,4 +9,5 @@ public interface ClaimRepository  extends JpaRepository<Claim, Long> {
 
     List<Claim> findByUserId(Long userId);
 
+
 }

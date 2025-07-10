@@ -1,4 +1,4 @@
-package com.example.spring_final.config;
+package com.statewideinsurance.userservice.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -7,8 +7,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 @Configuration
 public class RedisTemplateConfig {
     /*
-    Products -> {products_1, {....} , ....}
-    Categories -> {category_1 , {....} , ... }
+   used hashmap -- key ,value paire -- with table name
      */
     @Bean
     public RedisTemplate<String,Object> createRedisTemplate(RedisConnectionFactory redisConnectionFactory){

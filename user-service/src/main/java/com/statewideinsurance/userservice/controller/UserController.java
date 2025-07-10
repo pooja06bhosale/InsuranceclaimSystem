@@ -3,6 +3,7 @@ package com.statewideinsurance.userservice.controller;
 import com.statewideinsurance.userservice.model.User;
 import com.statewideinsurance.userservice.repository.UserRepository;
 import com.statewideinsurance.userservice.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,26 +13,33 @@ import java.util.List;
 @RequestMapping("/api/users")
 public class UserController {
 
-    private final UserService userService;
+    @Autowired
+    private  UserService userService;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
 
     @GetMapping
     public List<User> getAllUsers() {
+
         return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+        User user = userService.getUserById(id);
+        if (user != null) {
+            return ResponseEntity.ok(user);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
+
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User savedUser = userService.createUser(user);
+        return ResponseEntity.status(201).body(savedUser);
     }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
@@ -40,7 +48,9 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
     }
+
 }

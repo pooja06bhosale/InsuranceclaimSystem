@@ -3,13 +3,18 @@ package com.statewideinsurance.notification_service.Listener;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.statewideinsurance.notification_service.DTO.ClaimStatusUpdateEvent;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
 public class ClaimStatusListener {
-    private final ObjectMapper objectMapper = new ObjectMapper();
+
+    @Autowired
+    private ObjectMapper objectMapper ;
+//consumer
+
 
     @KafkaListener(topics = "claim-status-update",groupId = "notification-group")
     public void listen(String message) {

@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ClaimStatusUpdateEvent {
+    // put this class into lisner as dto
     private Long claimId;
     private Long userId;
     private String claimType;

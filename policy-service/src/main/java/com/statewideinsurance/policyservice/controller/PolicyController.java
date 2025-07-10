@@ -4,6 +4,7 @@ package com.statewideinsurance.policyservice.controller;
 import com.statewideinsurance.policyservice.model.Policy;
 import com.statewideinsurance.policyservice.service.PolicyService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +15,10 @@ import java.util.List;
 @RequestMapping("/api/policies")
 @RequiredArgsConstructor
 public class PolicyController {
-    private final PolicyService policyService;
+
+
+    @Autowired
+    private  PolicyService policyService;
 
     @PostMapping
     public ResponseEntity<Policy> createPolicy(@RequestBody Policy policy) {

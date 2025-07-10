@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ClaimStatusUpdateEvent {
+    //same as claim
     private Long claimId;
     private Long userId;
     private String claimType;

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.statewideinsurance.claims_service.Model.ClaimStatusUpdateEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,11 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Slf4j
 public class ClaimEventProducer {
+    @Autowired
+    private KafkaTemplate<String, String> kafkaTemplate;
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    @Autowired
+    private  ObjectMapper objectMapper ;
 
     public void sendClaimStatusEvent(ClaimStatusUpdateEvent event) {
         try {

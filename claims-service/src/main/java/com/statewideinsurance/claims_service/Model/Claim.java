@@ -17,7 +17,6 @@ public class Claim {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Long userId;
     private LocalDate claimDate;
     private double claimAmount;

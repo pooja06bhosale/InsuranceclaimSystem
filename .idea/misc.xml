@@ -8,7 +8,19 @@
         <option value="$PROJECT_DIR$/notification-service/pom.xml" />
         <option value="$PROJECT_DIR$/user-service/pom.xml" />
         <option value="$PROJECT_DIR$/policy-service/pom.xml" />
+        <option value="$PROJECT_DIR$/PaymentServiceJan25/pom.xml" />
+        <option value="$PROJECT_DIR$/api-gateway/api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/auth-service/auth-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Email_Service/pom.xml" />
+        <option value="$PROJECT_DIR$/PCS_AdvS-wEngg_May2025/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBootPracticeProject/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/PaymentServiceJan25/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBootPracticeProject/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_23" default="true" project-jdk-name="23" project-jdk-type="JavaSDK">

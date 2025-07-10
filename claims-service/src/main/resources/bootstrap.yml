@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: claims-service
+
+  cloud:
+    config:
+      uri: http://localhost:8085

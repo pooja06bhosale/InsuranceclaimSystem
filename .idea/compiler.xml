@@ -3,6 +3,11 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+      </profile>
       <profile name="Annotation profile for user-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
@@ -16,9 +21,23 @@
         <module name="notification-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="21" />
+      <module name="auth-service" target="17" />
+      <module name="Email_Service" target="17" />
+      <module name="PaymentServiceJan25" target="17" />
+      <module name="PCS_Junt_AdvSoftEngg_May2025" target="17" />
+      <module name="Spring_Final" target="23" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Email_Service" options="-parameters" />
+      <module name="PCS_Junt_AdvSoftEngg_May2025" options="-parameters" />
+      <module name="PaymentServiceJan25" options="-parameters" />
+      <module name="Spring_Final" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="auth-service" options="-parameters" />
       <module name="claims-service" options="-parameters" />
       <module name="notification-service" options="-parameters" />
       <module name="policy-service" options="-parameters" />

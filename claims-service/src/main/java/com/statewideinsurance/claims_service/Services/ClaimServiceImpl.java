@@ -1,12 +1,12 @@
-package com.statewideinsurance.claims_service.Services.Impl;
+package com.statewideinsurance.claims_service.Services;
 
+import com.statewideinsurance.claims_service.Kafka.ClaimEventProducer;
 import com.statewideinsurance.claims_service.Model.Claim;
 import com.statewideinsurance.claims_service.Model.ClaimStatus;
 import com.statewideinsurance.claims_service.Model.ClaimStatusUpdateEvent;
 import com.statewideinsurance.claims_service.Repository.ClaimRepository;
-import com.statewideinsurance.claims_service.Services.ClaimService;
-import com.statewideinsurance.claims_service.Kafka.ClaimEventProducer;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -16,8 +16,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ClaimServiceImpl implements ClaimService {
 
-    private final ClaimRepository claimRepository;
-    private final ClaimEventProducer claimEventProducer;
+    @Autowired
+    private  ClaimRepository claimRepository;
+    @Autowired
+    private  ClaimEventProducer claimEventProducer;
 
     @Override
     public Claim submitClaim(Claim claim) {
